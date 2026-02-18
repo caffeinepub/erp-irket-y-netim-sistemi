@@ -1,0 +1,80 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix Internet Identity authentication flow on all login screens",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Fix Internet Identity authentication in CompanyLogin.tsx to trigger authentication window and handle role-based routing for owner users",
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects owner users to owner dashboard",
+        "New users without profile are shown company registration form",
+        "Authentication errors display appropriate Turkish error messages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CompanyLogin.tsx",
+          "operation": "modify",
+          "description": "Fix the 'Devam Et' button click handler to properly call the login() function from useInternetIdentity hook. Ensure the button is wired to trigger Internet Identity authentication window. Add error handling for authentication failures with Turkish error messages. Verify the component's usage of the authorization component's login flow before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAuthRedirect.ts",
+          "operation": "modify",
+          "description": "Enhance role-based redirect logic to ensure Owner users are properly redirected to /owner/dashboard after successful authentication and profile retrieval. Ensure new users without profiles remain on the registration screen."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Fix Internet Identity authentication in ManagerLogin.tsx to trigger authentication window and handle role-based routing for manager users",
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects manager users to manager dashboard",
+        "New managers are shown invite code redemption form",
+        "Authentication errors display appropriate Turkish error messages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ManagerLogin.tsx",
+          "operation": "modify",
+          "description": "Fix the 'Devam Et' button click handler to properly call the login() function from useInternetIdentity hook. Ensure the button triggers Internet Identity authentication window. Add error handling for authentication failures with Turkish error messages. Handle the flow for new managers to show invite code redemption form. Verify the component's usage of the authorization component's login flow before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Fix Internet Identity authentication in EmployeeLogin.tsx to trigger authentication window and handle role-based routing for employee users",
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects employee users to employee dashboard",
+        "New employees are shown invite code redemption form",
+        "Authentication errors display appropriate Turkish error messages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EmployeeLogin.tsx",
+          "operation": "modify",
+          "description": "Fix the 'Devam Et' button click handler to properly call the login() function from useInternetIdentity hook. Ensure the button triggers Internet Identity authentication window. Add error handling for authentication failures with Turkish error messages. Handle the flow for new employees to show invite code redemption form. Verify the component's usage of the authorization component's login flow before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Ensure post-authentication role-based routing correctly directs users to their respective dashboards based on CompanyRole",
+      "acceptanceCriteria": [
+        "Owner role users are redirected to /owner/dashboard",
+        "Manager role users are redirected to /manager/dashboard",
+        "Employee role users are redirected to /employee/dashboard",
+        "Users without profiles remain on appropriate registration/invite screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useAuthRedirect.ts",
+          "operation": "modify",
+          "description": "Verify and enhance the role-based routing logic to correctly map CompanyRole enum values (Owner, Manager, Employee) to their respective dashboard routes (/owner/dashboard, /manager/dashboard, /employee/dashboard). Ensure users without profiles do not get redirected and remain on registration or invite screens. Add safeguards to prevent redirect loops."
+        }
+      ]
+    }
+  ]
+}

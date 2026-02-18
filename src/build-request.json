@@ -1,0 +1,109 @@
+{
+  "kind": "build_request",
+  "title": "Fix Internet Identity authentication flow on all login screens",
+  "projectName": "Turkish ERP System",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "Fix the Internet Identity authentication flow in CompanyLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates users",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5",
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "devam ete tıklayınca bir pencere açılmıyor",
+          "Tüm üç giriş ekranında (Şirket Kaydı, Yönetici Girişi, Çalışan Girişi) 'Devam Et' butonuna tıklandığında Internet Identity kimlik doğrulama penceresi açılmıyor"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects owner users to owner dashboard",
+        "New users without profile are shown company registration form",
+        "Authentication errors display appropriate Turkish error messages"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Fix the Internet Identity authentication flow in ManagerLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates managers",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5",
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "devam ete tıklayınca bir pencere açılmıyor",
+          "Tüm üç giriş ekranında (Şirket Kaydı, Yönetici Girişi, Çalışan Girişi) 'Devam Et' butonuna tıklandığında Internet Identity kimlik doğrulama penceresi açılmıyor"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects manager users to manager dashboard",
+        "New managers are shown invite code redemption form",
+        "Authentication errors display appropriate Turkish error messages"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Fix the Internet Identity authentication flow in EmployeeLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates employees",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5",
+          "msg-6",
+          "msg-7"
+        ],
+        "quotes": [
+          "devam ete tıklayınca bir pencere açılmıyor",
+          "Tüm üç giriş ekranında (Şirket Kaydı, Yönetici Girişi, Çalışan Girişi) 'Devam Et' butonuna tıklandığında Internet Identity kimlik doğrulama penceresi açılmıyor"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking 'Devam Et' button opens Internet Identity authentication window",
+        "Successful authentication redirects employee users to employee dashboard",
+        "New employees are shown invite code redemption form",
+        "Authentication errors display appropriate Turkish error messages"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Ensure post-authentication role-based routing correctly directs Owner users to /owner/dashboard, Manager users to /manager/dashboard, and Employee users to /employee/dashboard after successful Internet Identity login",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-7"
+        ],
+        "quotes": [
+          "Başarılı kimlik doğrulamadan sonra kullanıcıları rollerine göre doğru panellere yönlendireceğim (Owner → Yönetici Paneli, Manager → Yönetici Paneli, Employee → Çalışan Paneli)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Owner role users are redirected to /owner/dashboard",
+        "Manager role users are redirected to /manager/dashboard",
+        "Employee role users are redirected to /employee/dashboard",
+        "Users without profiles remain on appropriate registration/invite screens"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify useInternetIdentity.ts or useActor.ts as they are in immutablePaths",
+    "Maintain the existing three separate login screen architecture",
+    "Preserve all Turkish language labels and error messages",
+    "Keep role-based routing logic consistent with existing dashboard access patterns"
+  ],
+  "nonGoals": [
+    "Changing the backend authentication schema",
+    "Modifying the invite code system",
+    "Altering the company registration flow logic",
+    "Changing the role hierarchy or permission system"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

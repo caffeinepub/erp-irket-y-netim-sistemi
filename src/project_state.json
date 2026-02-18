@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Turkish web-based multi-tenant ERP Company Management System with Internet Identity authentication, three-tier role hierarchy (Owner/Manager/Employee), module-based RBAC permissions, and four core modules: Personnel Management, Task Management, Announcement System, and Reporting.",
+  "architectural_notes": [
+    "Multi-tenant ERP with complete data isolation per company using Company ID",
+    "Internet Identity for authentication; roles (Owner/Manager/Employee) assigned in-app",
+    "Three-tier hierarchy: Owner → Manager → Employee with cascading permissions",
+    "Module-based RBAC: each module has separate View/Add/Edit/Delete permissions per role",
+    "Invite code system for onboarding Managers and Employees (not for company creation)",
+    "Turkish language interface throughout the application",
+    "Owner manages Manager list, Manager manages Employee list",
+    "Four core modules: Personnel, Tasks, Announcements, Reporting"
+  ],
+  "known_issues": [
+    "Internet Identity authentication not triggering on all three login screens (Company Registration, Manager Login, Employee Login) - 'Devam Et' button clicks do not open authentication window"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-three-separate-login-screens-company-registration-manager-login-employee-login-that-all-use-internet-identity-for-authentication-but-route-users-to-role-specific-panels-based-on-their-assigned-role",
+      "title": "Create three separate login screens (Company Registration, Manager Login, Employee Login) that all use Internet Identity for authentication but route users to role-specific panels based on their assigned role",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-company-registration-flow-that-creates-a-new-company-with-company-id-automatically-assigns-the-registrant-as-owner-role-and-initializes-an-isolated-data-space-for-the-company",
+      "title": "Implement company registration flow that creates a new company with Company ID, automatically assigns the registrant as Owner role, and initializes an isolated data space for the company",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-owner-role-with-capabilities-to-manage-managers-including-viewing-manager-list-adding-managers-via-invite-codes-editing-manager-permissions-deleting-managers-and-generating-invite-codes",
+      "title": "Create Owner role with capabilities to manage Managers including: viewing Manager list, adding Managers via invite codes, editing Manager permissions, deleting Managers, and generating invite codes",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-manager-role-with-capabilities-to-manage-employees-including-viewing-employee-list-adding-employees-via-invite-codes-editing-employee-details-and-assigning-module-based-permissions-to-employees",
+      "title": "Create Manager role with capabilities to manage Employees including: viewing Employee list, adding Employees via invite codes, editing Employee details, and assigning module-based permissions to Employees",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-employee-role-that-can-only-access-modules-for-which-they-have-been-granted-permissions-with-no-ability-to-manage-other-users",
+      "title": "Create Employee role that can only access modules for which they have been granted permissions, with no ability to manage other users",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-personnel-management-module-in-turkish-with-capabilities-for-listing-all-personnel-adding-personnel-via-invite-codes-assigning-roles-owner-manager-employee-setting-module-permissions-and-toggling-active-inactive-status",
+      "title": "Build Personnel Management module in Turkish with capabilities for: listing all personnel, adding personnel via invite codes, assigning roles (Owner/Manager/Employee), setting module permissions, and toggling active/inactive status",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-task-management-module-in-turkish-with-capabilities-for-creating-tasks-assigning-tasks-to-personnel-setting-priority-levels-tracking-status-waiting-in-progress-completed-and-setting-deadlines",
+      "title": "Build Task Management module in Turkish with capabilities for: creating tasks, assigning tasks to personnel, setting priority levels, tracking status (Waiting/In Progress/Completed), and setting deadlines",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-announcement-system-module-in-turkish-with-capabilities-for-creating-announcements-publishing-announcements-to-specific-roles-and-tracking-read-status-for-each-user",
+      "title": "Build Announcement System module in Turkish with capabilities for: creating announcements, publishing announcements to specific roles, and tracking read status for each user",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-reporting-module-in-turkish-with-three-report-types-personnel-activity-report-showing-personnel-actions-and-usage-task-completion-report-showing-task-statistics-and-performance-summary-report-showing-manager-based-performance-metrics",
+      "title": "Build Reporting module in Turkish with three report types: Personnel Activity Report showing personnel actions and usage, Task Completion Report showing task statistics, and Performance Summary Report showing Manager-based performance metrics",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-a-professional-modern-turkish-erp-interface-with-a-clean-corporate-visual-theme-using-warm-neutral-colors-avoiding-blue-and-purple-unless-specifically-needed-for-status-indicators-clear-typography-optimized-for-turkish-text-and-an-organized-dashboard-layout-with-role-specific-navigation",
+      "title": "Design a professional, modern Turkish ERP interface with a clean corporate visual theme using warm neutral colors (avoiding blue and purple unless specifically needed for status indicators), clear typography optimized for Turkish text, and an organized dashboard layout with role-specific navigation",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-internet-identity-authentication-flow-in-companylogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-users",
+      "title": "Fix the Internet Identity authentication flow in CompanyLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates users",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-internet-identity-authentication-flow-in-managerlogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-managers",
+      "title": "Fix the Internet Identity authentication flow in ManagerLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates managers",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-internet-identity-authentication-flow-in-employeelogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-employees",
+      "title": "Fix the Internet Identity authentication flow in EmployeeLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates employees",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Multi-tenant architecture with company isolation and Company ID-based data separation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Three separate login screens (Company/Manager/Employee) using Internet Identity",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Role-based hierarchy: Owner manages Managers, Manager manages Employees",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Invite code system (single-use/time-limited) for adding Managers and Employees",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Module-based RBAC with View/Add/Edit/Delete permissions per module",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Personnel Management module: list, add, role/permission assignment, active/inactive status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Task Management module: create, assign, priority, status tracking, deadline",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Announcement System module: create, role-based publishing, read status",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Reporting module: personnel activity, task completion, performance summary reports",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Owner panel with Manager list and management capabilities",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Manager panel with Employee list and management capabilities",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Company registration flow creating Company ID, Owner account, and isolated data space",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement multi-tenant architecture with Company ID-based data isolation ensuring each company can only access its own data and is completely isolated from other companies",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Implement invite code system supporting single-use and time-limited codes for adding Managers and Employees, with validation that codes can only be used for their intended role and company",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Implement module-based RBAC permission system where each module (Personnel Management, Task Management, Announcements, Reporting) has separate View, Add, Edit, and Delete permissions that can be assigned per user role",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Ensure post-authentication role-based routing correctly directs Owner users to /owner/dashboard, Manager users to /manager/dashboard, and Employee users to /employee/dashboard after successful Internet Identity login",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "ERP Şirket Yönetim Sistemi",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

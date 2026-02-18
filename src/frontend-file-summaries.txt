@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router configuration for all routes including login screens, role-based dashboards, and module pages with proper React component naming for hooks compliance.",
+  "frontend/src/index.css": "Global CSS file with Tailwind directives and OKLCH-based design tokens for warm neutral color scheme optimized for Turkish ERP interface with light and dark mode support.",
+  "frontend/src/pages/CompanyLogin.tsx": "Company owner login page with Internet Identity authentication, error handling, and automatic redirect to /owner route upon successful authentication.",
+  "frontend/src/pages/ManagerLogin.tsx": "Manager login page with Internet Identity authentication, invite code redemption form for new managers, error handling, and redirect to /manager route.",
+  "frontend/src/pages/EmployeeLogin.tsx": "Employee login page with Internet Identity authentication, invite code redemption form for new employees, error handling, and redirect to /employee route.",
+  "frontend/src/hooks/useAuthRedirect.ts": "Custom hook for role-based authentication redirects that routes Owner, Manager, and Employee users to their respective dashboard routes (/owner, /manager, /employee)."
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-internet-identity-authentication-flow-in-companylogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-users",
+      "featureTitle": "Fix the Internet Identity authentication flow in CompanyLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates users",
+      "files": [
+        "frontend/src/pages/CompanyLogin.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-internet-identity-authentication-flow-in-managerlogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-managers",
+      "featureTitle": "Fix the Internet Identity authentication flow in ManagerLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates managers",
+      "files": [
+        "frontend/src/pages/ManagerLogin.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-fix-the-internet-identity-authentication-flow-in-employeelogin-tsx-so-that-clicking-the-devam-et-button-triggers-the-internet-identity-authentication-window-and-successfully-authenticates-employees",
+      "featureTitle": "Fix the Internet Identity authentication flow in EmployeeLogin.tsx so that clicking the 'Devam Et' button triggers the Internet Identity authentication window and successfully authenticates employees",
+      "files": [
+        "frontend/src/pages/EmployeeLogin.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
